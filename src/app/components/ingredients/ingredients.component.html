@@ -1,0 +1,65 @@
+<div class="grid-container">
+    <div class="form-wrapper">
+    <mat-form-field class="input-wrapper">
+      <input matInput placeholder="Search Ingredients" color="primary">
+      <mat-icon matSuffix class="search-icon">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <mat-divider class="divide-header"></mat-divider>
+      <mat-grid-list cols="3" class="card-grid">
+        <mat-grid-tile colspan="1" class="grid-tile" rowspan="1">
+        <mat-accordion class="dashboard-card" multi>
+          <mat-expansion-panel class="expansion-panel" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="card-header">
+                Salt
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <mat-panel-description class="card-body dashboard-card-content">
+              <span class="dumbass-wrapper">
+                <mat-checkbox class="dumbass-checkbox">Kosher Salt</mat-checkbox>
+                <mat-checkbox class="dumbass-checkbox">Sea Salt</mat-checkbox>
+              </span>
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" class="grid-tile" rowspan="1">
+        <mat-accordion class="dashboard-card" multi>
+          <mat-expansion-panel class="expansion-panel" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="card-header">
+                Dairy
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <mat-panel-description class="card-body dashboard-card-content">
+              <span class="dumbass-wrapper">
+                <mat-checkbox class="dumbass-checkbox">Milk</mat-checkbox>
+                <mat-checkbox class="dumbass-checkbox">Cheese</mat-checkbox>
+            </span>
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" class="grid-tile" [rowspan]="card.rows">
+        <mat-accordion class="dashboard-card" multi>
+          <mat-expansion-panel class="expansion-panel" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="card-header">
+                {{card.title}}
+              </mat-panel-title>
+              <button mat-button [matTooltip]="getToolTip(card.classList)" (click)="favoriteCard($event, card)" class="icon-wrapper">
+                <i [ngClass]="card.classList"></i>
+              </button>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <mat-panel-description class="card-body dashboard-card-content">
+              {{card.description}}
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </mat-grid-tile> -->
+      </mat-grid-list>
+    </div>

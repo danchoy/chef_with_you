@@ -1,0 +1,40 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Settings</h1>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="1" class="card-grid">
+        <mat-grid-tile colspan="1">
+            <section class="dashboard-card" multi>
+                <mat-card class="expansion-panel">
+                    <mat-card-header>
+                        <mat-panel-title class="card-header">
+                            Preferences
+                        </mat-panel-title>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-panel-description>
+                        <span class="dumbass-wrapper">
+                            <mat-checkbox class="dumbass-checkbox">Dark Mode</mat-checkbox>
+                            <mat-checkbox class="dumbass-checkbox">Color code ingredient tags based on avaliability</mat-checkbox>
+                        </span>
+                    </mat-panel-description>
+                </mat-card>
+                <mat-card class="expansion-panel">
+                    <mat-card-header>
+                        <mat-panel-title class="card-header">
+                            Account
+                        </mat-panel-title>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-panel-description>
+                        <span class="dumbass-wrapper">
+                            <label for="username">Username:</label>
+                            <input type="text" name="username">
+                            <label for="lname">Password:</label>
+                            <input type="text" name="password">
+                        </span>
+                    </mat-panel-description>
+                </mat-card>
+            </section>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

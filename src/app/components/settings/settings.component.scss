@@ -1,0 +1,111 @@
+@import '../../../assets/themes/icons';
+
+.grid-container {
+    padding: 20px;
+  }
+  
+  .dashboard-card {
+    vertical-align: middle;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 2px 5px grey);
+    
+  }
+
+  .icon-wrapper {
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 64px;
+    padding: 12px;
+  }
+
+  .grid-tile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row-container {
+    height: 350px;
+    &.isClosed {
+      height: 100px;
+    }
+  }
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .input-wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    justify-content: space-between;
+    line-height: 24px;
+    vertical-align: middle;
+    input {
+      width: auto;
+      vertical-align: middle;
+    }
+    .search-icon {
+      display: inline;
+      align-self: end;
+      vertical-align: middle;
+    }
+  }
+}
+  .mat-divider {
+    margin: 5px 0 10px 0;
+    border-top-style: solid;
+    border-top-width: 2px;
+  }
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    padding: 8px;
+    margin: 0;
+    text-align: left;
+    height: 230px;
+  }
+
+  .dumbass-wrapper {
+    display: grid;
+    grid-template-columns: 242px;
+    grid-template-rows: 30px 30px;
+    grid-template-areas: 'a'
+                         'b';
+  }
+
+  .dumbass-checkbox, .dumbass-checkbox * {
+        font-size: 16px !important;
+        font-weight: bold !important;
+  }
+
+  .card-body {
+    font-size: 16px;
+    font-weight: 600;
+    align-items: start;
+  }
+
+  .expansion-panel {
+    margin: 0;
+  }
+
+  .card-header {
+    font-size: 22px;
+    font-weight: 700;
+  }

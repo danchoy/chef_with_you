@@ -1,0 +1,59 @@
+<div class="grid-wrapper">
+    <div class="form-wrapper">
+        <mat-form-field class="input-wrapper">
+            <input matInput [(ngModel)]="searchValue" placeholder="Search Ingredients" color="primary"
+                (keyup.enter)="doSearch()">
+                <mat-icon matSuffix matTooltip="Search" (click)="doSearch()" class="search-icon">search</mat-icon>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="ingredients-grid">
+        <mat-card class="results">
+            <h2 class="mat-h2">Search Results</h2>
+            <mat-divider></mat-divider>
+            <mat-grid-list class="grid-list" cols="1" rowHeight="30px">
+                <mat-grid-tile *ngFor="let res of searchResults | async">
+                    <mat-accordion class="Ingredients Results">
+                        <span class="text-wrapper checkbox">
+                            <mat-checkbox #checkbox (change)="showOptions($event, getIngredients(res))"></mat-checkbox>
+                            {{ getIngredients(res) }}
+                        </span>
+                        <!-- TODO: Add logic like (click)="removeIngredient(inactive)" -->
+                    </mat-accordion>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+        <mat-card class="active">
+            <h2 class="mat-h2">Fridge/Pantry</h2>
+            <mat-divider></mat-divider>
+            <mat-grid-list class="grid-list" cols="1" rowHeight="30px">
+                <mat-grid-tile *ngFor="let active of getActiveIngredients()">
+            <mat-accordion class="Ingredients Active">
+                <span class="text-wrapper">
+                    {{active}}
+                </span>
+                <button mat-icon-button (click)="removeIngredients(active)">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </mat-accordion>
+        </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+        <mat-card class="missing">
+            <h2 class="mat-h2">Shopping List</h2>
+            <mat-divider></mat-divider>
+            <mat-grid-list class="grid-list" cols="1" rowHeight="30px">
+                <mat-grid-tile *ngFor="let inactive of getInactiveIngredients()">
+                    <mat-accordion class="Ingredients InActive">
+                        <span class="text-wrapper">
+                            {{inactive}}
+                        </span>
+                        <button mat-icon-button (click)="addIngredients(inactive)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </mat-accordion>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+    </div>
+</div>

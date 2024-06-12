@@ -1,0 +1,48 @@
+.Side-Menu {
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+
+  &.Home {
+    background-image: url('^assets/icons/Home.svg');
+  }
+
+  &.Oven {
+    background-image: url('^assets/icons/Oven.svg');
+  }
+
+  &.Settings {
+    background-image: url('^assets/icons/Settings.svg');
+  }
+
+  &.Cookbook {
+    background-image: url('^assets/icons/Cookbook.svg');
+  }
+
+  &.Ingredients {
+    background-image: url('^assets/icons/Ingredients.svg');
+  }
+
+  &.Fridge {
+    background-image: url('^assets/icons/Fridge.svg');
+  }
+}
+
+.Cards {
+  background-repeat: no-repeat;
+  display: block;
+
+  &.Favorite {
+    height: 50px;
+    width: 34px;
+
+    &.Empty {
+      background-image: url('^assets/icons/FavoriteEmpty.svg');
+    }
+
+    &.Filled {
+      background-image: url('^assets/icons/FavoriteFilled.svg');
+    }
+  }
+}

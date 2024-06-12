@@ -1,0 +1,158 @@
+@import '../../../assets/themes/icons';
+
+.sidenav-container {
+  height: 100%;
+  .sidenav {
+    padding-top: 80px;
+    border: none;
+    width: 300px;
+  }
+}
+.mat-divider {
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
+  z-index: 1;
+  border-top-color: white;
+  border-top-style: solid;
+  width: 80%;
+}
+.toolbar {
+  position: fixed;
+
+}
+.title-wrapper {
+  cursor: pointer;
+  grid-gap: 10px;
+  width: auto;
+  justify-content: center;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-areas: 'title icon';
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    width: auto;
+    color: white;
+    font-family: 'Josefin Slab';
+  }
+  .Title-Icon {
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    background-image: url('^assets/icons/Logo.svg');
+    background-repeat: no-repeat;
+  }
+}
+.mat-nav-list {
+  &:last-child {
+    height:400px;
+  }
+}
+
+.icons-wrapper {
+  display: grid;
+  grid-template-areas: 'icon text';
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 65px;
+  grid-gap: 0px;
+  width: inherit;
+  height: 75px;
+  justify-content: center;
+  align-items: center;
+}
+
+a.list-item, .mat-list-item {
+  padding: 8px 0;
+  border-radius: 6px;
+  width: 90%;
+  margin: 4px auto;
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sidenav {
+  background-color: #7E543D;
+  a * {
+    color: white;
+  }
+  a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #5f341c60;
+    background-blend-mode: darken;
+  }
+  a.active {
+    background-color: #603C29;
+    * {
+      color: #FFEE96;
+    }
+    .Side-Menu {
+      &.Home {
+        background-image: url('^assets/icons/HomeSelected.svg');
+      }
+      &.Oven {
+        background-image: url('^assets/icons/OvenSelected.svg');
+        z-index: 500;
+      }
+      &.Settings {
+        background-image: url('^assets/icons/SettingsSelected.svg');
+      }
+      &.Cookbook {
+        background-image: url('^assets/icons/CookbookSelected.svg');
+      }
+      &.Ingredients {
+        background-image: url('^assets/icons/IngredientsSelected.svg');
+      }
+      &.Fridge {
+        background-image: url('^assets/icons/FridgeSelected.svg');
+      }
+    }
+  }
+
+  .sidenav-list {
+    vertical-align: middle;
+    line-height: 48px;
+    font-size: 24px;
+    width: 100%;
+    text-align: start;
+    margin: 8px auto 2px auto;
+  }
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: #D9D9D9;
+  h1 {
+    margin: auto;
+    text-align: center;
+  }
+  height: 75px;
+  box-shadow: 0 2px 5px 0 black;
+}
+
+@media screen and (min-width: 1440px) {
+  .mat-toolbar.mat-primary {
+    margin-left: 0 !important;
+  }
+}
+
+main, main *, .mat-sidenav-content {
+  background-color: #E9E2D1;
+}
+
+.mat-sidenav-content {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+main, main * {
+  overflow: hidden;
+}

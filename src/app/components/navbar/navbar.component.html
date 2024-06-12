@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav color="primary" class="sidenav" #drawer fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-nav-list>
+      <a class="list-item" mat-list-item (click)="onButtonClick()" routerLink="/home" routerLinkActive="active"><div class="icons-wrapper"><i class="Side-Menu Home"></i><span class="sidenav-list">Home</span></div></a>
+      <mat-divider></mat-divider>
+      <!-- <a class="list-item" mat-list-item routerLink="/ingredients" routerLinkActive="active"><div class="icons-wrapper"><i class="Side-Menu Ingredients" ></i><span class="sidenav-list">Ingredient List</span></div></a>
+      <mat-divider></mat-divider> -->
+      <a class="list-item" mat-list-item (click)="onButtonClick()" routerLink="/oven" routerLinkActive="active"><div class="icons-wrapper"><i [matBadge]="getSavedRecipeCount()" [matBadgeHidden]="noSavedRecipes()" matBadgeColor="warn" matBadgePosition="below after" matBadgeSize="medium" matBadgeOverlap="true" class="Side-Menu Oven" ></i><span class="sidenav-list">My Recipes</span></div></a>
+      <mat-divider></mat-divider>
+      <a class="list-item" mat-list-item (click)="onButtonClick()" routerLink="/fridge" routerLinkActive="active"><div class="icons-wrapper"><i class="Side-Menu Fridge" ></i><span class="sidenav-list">My Ingredients</span></div></a>
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <a class="list-item" mat-list-item routerLink="/cookbook" routerLinkActive="active"><div class="icons-wrapper"><i class="Side-Menu Cookbook" ></i><span class="sidenav-list">My Cookbook</span></div></a> -->
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <a class="list-item" mat-list-item routerLink="/settings" routerLinkActive="active"><div class="icons-wrapper"><i class="Side-Menu Settings" ></i><span class="sidenav-list">Settings</span></div></a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar" color="primary">
+      <button
+        matTooltip="Side Navigation"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon [matBadge]="getSavedRecipeCount()" [matBadgeHidden]="noSavedRecipes()" matBadgeColor="warn" matBadgePosition="below after">menu</mat-icon>
+      </button>
+      <span class="title-wrapper">
+        <h1 routerLink="/">ChefWithYou</h1>
+        <i class="Title-Icon"></i>
+      </span>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

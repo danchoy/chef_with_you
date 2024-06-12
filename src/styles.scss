@@ -1,0 +1,88 @@
+// src/styles.scss
+// Custom Theming for Angular Material
+
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@import "@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$chef-primary: (
+  50: #E9E2D1,
+  100: #A19B8B,
+  200: #7E543D,
+  300: #603C29,
+  400: #363635,
+  500: black,
+  600: black,
+  700: black,
+  800: black,
+  900: black,
+  A100: black,
+  A200: black,
+  A400: black,
+  A700: black,
+  contrast: (
+    50: #FFFFFF,
+    100: #FFEE96,
+    200: #87CE65,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+// below creates a primary palette with three shades of blue
+$primary: mat-palette($chef-primary, 200);
+
+$theming-material-components-primary: mat-palette($mat-brown);
+$accent: mat-palette($chef-primary, 100);
+
+$chef-text: mat-palette($chef-primary, 100);
+// The warn palette is optional (defaults to red).
+
+$warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+
+$theming-material-components-theme: mat-light-theme((
+    color: (
+        primary: $primary,
+        accent: $accent,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+     )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+@include angular-material-theme($theming-material-components-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body, body * {
+  margin: 0;
+  font-family: "Josefin Slab", sans-serif;
+}

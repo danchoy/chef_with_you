@@ -1,0 +1,32 @@
+<div class="grid-container">
+  <div class="form-wrapper">
+  <mat-form-field class="input-wrapper">
+    <input matInput [(ngModel)]="searchValue" placeholder="Search Recipes" color="primary" (keyup.enter)="doSearch()">
+    <mat-icon matSuffix matTooltip="Search" (click)="doSearch()" class="search-icon">search</mat-icon>
+  </mat-form-field>
+</div>
+<mat-paginator [length]="getTotalCount()" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="pageChange($event)"></mat-paginator>
+<mat-divider class="divide-header"></mat-divider>
+    <mat-grid-list cols="3" class="card-grid" rowHeight="350px">
+      <mat-grid-tile *ngFor="let card of paginatedCards$ | async" [colspan]="card.cols" class="grid-tile" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+          <mat-card-header class="header-grid">
+            <mat-card-title class="card-header">
+              <span class="recipe-name">
+               <a [href]="getLink(card.title)" target="_blank">  <!-- add target="_blank" by Dan  -->
+                {{card.title}}
+                </a>
+              </span>
+            </mat-card-title>
+            <button matSuffix mat-button [matTooltip]="getToolTip(card.classList)" (click)="favoriteCard($event, card)" class="icon-wrapper">
+              <i [ngClass]="card.classList"></i>
+            </button>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content class="card-body dashboard-card-content">
+            <img [src]="card.description" class="image-desc" height="100%" />
+          </mat-card-content>
+      </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

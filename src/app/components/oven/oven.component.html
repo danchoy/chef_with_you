@@ -1,0 +1,29 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Your Recipes</h1>
+    <mat-divider></mat-divider>
+    <mat-grid-list *ngIf="getSavedRecipes(); else none" cols="3" class="card-grid" rowHeight="350px">
+        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" class="grid-tile" [rowspan]="card.rows">
+            <mat-card class="dashboard-card">
+                    <mat-card-header class="header-grid">
+                        <mat-card-title class="card-header">
+                            <span class="recipe-name">
+                                <a [href]="getLink(card.title)" target="_blank">  <!-- add target="_blank" by Dan  -->
+                                    {{card.title}}
+                                    </a>
+                            </span>
+                        </mat-card-title>
+                        <button matSuffix mat-icon-button matTooltip="Delete Recipe" (click)="removeRecipe(card)">
+                            <mat-icon>delete_forever</mat-icon>
+                        </button>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-content class="card-body dashboard-card-content">
+                        <img [src]="card.description" class="image-desc" height="100%" />
+                    </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <ng-template #none>
+        <h2>No Saved Recipes Found.</h2>
+    </ng-template>
+</div>
